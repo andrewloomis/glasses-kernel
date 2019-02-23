@@ -67,13 +67,13 @@
 			pinctrl-1 = <&blsp1_uart2_sleep>;
 		};
 
-		i2c@78b6000 {
+		i2c0:i2c@78b6000 {
 			label = "I2C0";
 			status = "okay";
 		};
 
-		i2c2:i2c@78b8000 {
-			label = "I2C2";
+		i2c3:i2c@78b8000 {
+			label = "I2C3";
 			status = "okay";
 		};
 
@@ -218,6 +218,17 @@
 				};
 				codec {
 					sound-dai = <&lpass_codec 1>, <&wcd_codec 1>;
+				};
+			};
+		};
+
+		spmi@200f000 {
+			pm8916@1 {
+				pwm4: pwm@bc00 {
+					status = "okay";
+
+					pinctrl-names = "default";
+					pinctrl-0 = <&ls_exp_gpio_f>;
 				};
 			};
 		};

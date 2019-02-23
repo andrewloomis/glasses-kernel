@@ -2,7 +2,7 @@ export CROSS_COMPILE=/home/andrew/dev/dragonboard/gcc-linaro-7.3.1-2018.05-x86_6
 export ARCH=arm64
 if [[ $1 = "full" ]]; then
 	make mrproper
-	make defconfig distro.config custom.config
+	make defconfig distro_custom.config custom.config
 fi
 make KERNELRELEASE=4.14.0-qcomlt-arm64 Image.gz dtbs modules -j12
 rm -rf ./build-arm64-modules/

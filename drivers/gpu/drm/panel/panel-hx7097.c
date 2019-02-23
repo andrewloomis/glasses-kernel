@@ -186,7 +186,7 @@ static struct i2c_driver hx7097_driver = {
 
 static int __init hx7097_init(void)
 {
-    printk(KERN_INFO "loading hx7097 i2c driver\n");
+    printk(KERN_INFO "hx7097: loading hx7097 i2c driver\n");
 	return i2c_add_driver(&hx7097_driver);
 }
 module_init(hx7097_init);

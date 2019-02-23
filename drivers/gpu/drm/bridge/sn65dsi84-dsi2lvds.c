@@ -228,6 +228,7 @@ static struct i2c_driver sn65dsi84_driver = {
 
 static int __init sn65dsi84_init(void)
 {
+	printk(KERN_INFO "sn65dsi84: Loading\n");
 	return i2c_add_driver(&sn65dsi84_driver);
 }
 module_init(sn65dsi84_init);

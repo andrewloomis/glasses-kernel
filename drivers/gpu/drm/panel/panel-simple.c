@@ -2430,9 +2430,9 @@ static int panel_simple_dsi_probe(struct mipi_dsi_device *dsi)
 	const struct panel_desc_dsi *desc;
 	const struct of_device_id *id;
 	int err;
-	printk("Probing display");
+	printk(KERN_INFO "panel-simple-dsi: Probing display");
 	id = of_match_node(dsi_of_match, dsi->dev.of_node);
-	printk("Using display: %s", id->compatible);
+	printk(KERN_INFO "panel-simple-dsi: Using display: %s", id->compatible);
 	if (!id)
 		return -ENODEV;
 
@@ -2485,6 +2485,7 @@ static int __init panel_simple_init(void)
 
 	if (IS_ENABLED(CONFIG_DRM_MIPI_DSI)) {
 		err = mipi_dsi_driver_register(&panel_simple_dsi_driver);
+		printk(KERN_INFO "panel-simple-dsi: Registering dsi driver: %i", err);
 		if (err < 0)
 			return err;
 	}
